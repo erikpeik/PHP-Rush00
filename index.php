@@ -7,7 +7,7 @@
 		exit();
 	}
 
-	mysqli_select_db($con, 'phpstore');
+	mysqli_select_db($con, 'rush_store');
 	$sql = "SELECT * FROM products WHERE featured=1";
 	$featured = mysqli_query($con, $sql);
 ?>
