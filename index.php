@@ -15,25 +15,29 @@
 <html>
 	<head>
 		<title>PHP Store</title>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="css/nav	.css">
+		<link rel="stylesheet" href="css/index.css">
 		<meta charset="UTF-8">
 	</head>
 	<body>
 		<ul>
-			<li><a class="active" href=".">Home</a></li>
+			<li><a class="active" href="index.php">Home</a></li>
 			<li><a href="#product">Products</a></li>
 			<li><a href="#signin">Sign in</a></li>
-			<li><a href="#basket">Basket</a></li>
+			<li><a href="basket.php">Basket</a></li>
 		</ul>
 		<img class="logo" src="img/logo.png">
 		<h2 style="text-align: center; color: #C3073F">TOP PRODUCTS</h2>
 		<div class="featured_container">
 			<?PHP while($product = mysqli_fetch_assoc($featured)) { ?>
-			<div class="product_div">
-				<h4><?=$product['title']; ?></h4>
-				<img class="product_image" src="<?= $product['image']; ?>" alt="<?= $product['title']; ?>" />
-				<p>Price: <?= $product['price']; ?>€</p>
-			</div>
+			<form action="index.php" method="post">
+				<div class="product_div">
+					<h4><?=$product['title']; ?></h4>
+					<img class="product_image" src="<?= $product['image']; ?>" alt="<?= $product['title']; ?>" />
+					<p>Price: <?= $product['price']; ?>€</p>
+					<button class="button" type="submit" name="add">Add to Cart</button>
+				</div>
+			</form>
 			<?PHP } ?>
 		</div>
 	</body>

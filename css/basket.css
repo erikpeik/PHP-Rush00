@@ -1,0 +1,14 @@
+body {
+	font-family: Helvetica, sans-serif;
+	background-color: #1A1A1D;
+}
+
+.container {
+	width: 80vw;
+	margin: auto;
+	background-color: #6F2232;
+}
+
+.container > h2 {
+	color: white;
+}
