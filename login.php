@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="login.css" />
+
 <html>
 	<head>
 		<title>Log In</title>
@@ -54,14 +56,14 @@ include "functions.php";
 <html>
     <body>
         <form method="POST" action="">
-        <div class="container">
+        <div class="form_container">
             <div class="form_input">
         <!-- CHECK FOR SQL INJECTION -->
-        <input type="text" name="username" placeholder="Username"value="" />
+        <input type="text" name="username" placeholder="Username"value="" required/>
         </div>
         <br \>
         <div class="form_input">
-        <input type="password" name="password" placeholder="Password" value=""/></div>
+        <input type="password" name="password" placeholder="Password" value=""required/></div>
         <br \>
         <a href="signup.php">Signup</a>
         <br \>
