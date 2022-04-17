@@ -34,7 +34,7 @@
 		}
 		?>
 		<a href="index.php"><img class="logo" src="img/logo.png"></a>
-		<h2 style="text-align: center; color: #C3073F">TOP PRODUCTS</h2>
+		<h2 style="text-align: center; color: #C3073F">ALL PRODUCTS</h2>
 		<div class="featured_container">
 			<?PHP while($product = mysqli_fetch_assoc($featured)) { ?>
 			<form action="index.php" method="post">
