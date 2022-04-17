@@ -50,10 +50,18 @@ body {
 	border:0.1vw solid #FFFFFF;
 	background-color: #a34457;
 	color:#FFFFFF;
+	transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 
 .button:hover {
-	background-color: #661e2d;
+	box-shadow: inset 6vw 0 0 0 white;
+	color: #661e2d;
+}
+
+.button:active {
+	background-color: white;
+	transition: 0.1s;
+	transform: scale(1.05);
 }
 
 .product_image {
