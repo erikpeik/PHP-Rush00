@@ -1,16 +1,7 @@
 <?PHP
 
 	session_start();
-	$con = mysqli_connect('localhost', 'root', 'hmaronen');
-	if (mysqli_connect_errno())
-	{
-		echo "Failed to connect to MySQL: " . mysqli_connect_error();
-		exit();
-	}
-
-	mysqli_select_db($con, 'rush_store');
-	$sql = "SELECT * FROM products WHERE featured=1";
-	$featured = mysqli_query($con, $sql);
+	require_once("connect_db.php");
 
 	if(isset($_POST["add"]))
 	{
@@ -48,7 +39,7 @@
 		<meta charset="UTF-8">
 	</head>
 	<body>
-		<?PHP require("header.php") ?>
+		<?PHP require_once("header.php") ?>
 		<a href="index.php"><img class="logo" src="img/logo.png"></a>
 		<h2 style="text-align: center; color: #C3073F">TOP PRODUCTS</h2>
 		<div class="featured_container">
