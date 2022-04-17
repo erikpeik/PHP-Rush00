@@ -5,6 +5,7 @@
 <?php
 include "functions.php";
     session_start();
+
     require_once("connect_db.php");
 
     //  Without "isset($_POST["username"]" site would add empty users. //
@@ -53,6 +54,7 @@ include "functions.php";
     <body>
         <?PHP require("header.php") ?>
         <a href="index.php"><img class="logo" src="img/logo.png"></a>
+        
         <form method="POST" action="">
         <div class="form_container">
             <div class="form_input">
