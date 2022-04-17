@@ -24,8 +24,7 @@
 			}
 		}
 		$order_array = serialize($order_array);
-		$sql = "INSERT INTO orders VALUES (
-			NULL, '".$_SESSION["username"]."', '".date('m/d/Y h:i:s', time())."', '".$order_array."', '".number_format($total, 2, '.', '')."')";
+		$sql = "INSERT INTO orders VALUES (NULL, '".$_SESSION["username"]."', '".$_POST["fname"]."', '".$_POST["address"]."', '".$_POST["number"]."', '".date('m/d/Y h:i:s', time())."', '".$order_array."', '".number_format($total, 2, '.', '')."')";
 		mysqli_query($con, $sql);
 		unset($_SESSION["cart"]);
 		header("Location: index.php?order=placed");

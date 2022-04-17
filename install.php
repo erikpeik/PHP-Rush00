@@ -56,6 +56,7 @@
 					`username` VARCHAR(20) NOT NULL ,
 					`full_name` VARCHAR(50) NOT NULL ,
 					`address` VARCHAR(100) NOT NULL ,
+					`phone_number` VARCHAR(25) NOT NULL ,
 					`order_time` VARCHAR(30) NOT NULL ,
 					`orders` TEXT NOT NULL ,
 					`total_price` DECIMAL(10,2) NOT NULL ,
