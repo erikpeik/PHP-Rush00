@@ -23,7 +23,7 @@ include "functions.php";
         $username = $_POST["username"];
         $encrypted_password = hash_password($_POST["password"]);
 
-        if (!empty($username) && !empty($encrypted_password)) // !is_numeric could be added
+        if (!empty($username) && !empty($encrypted_password)) // !is_numeric could be added to deny numeric users
         {
             //check_dublicate_users();
             $query = "insert into users (username,password) values ('$username', '$encrypted_password')";
@@ -40,7 +40,6 @@ include "functions.php";
             // Empty username or password inputted
             echo "Fill both fields please!";
         }
-
     }
 ?>
 <html>

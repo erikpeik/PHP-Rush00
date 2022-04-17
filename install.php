@@ -11,6 +11,8 @@
 		</form>
 		<?PHP
 			$database = "rush_store";
+			$admin_pw = hash('whirlpool', "admin"); 
+
 			if (!$_GET["servername"] || !$_GET["login"] || !$_GET["password"])
 			{
 				echo "Please give information about your DB location".PHP_EOL;
@@ -28,6 +30,7 @@
 			echo "Trying to create new database called: $database<br />";
 			$sql = "CREATE DATABASE IF NOT EXISTS $database";
 			mysqli_query($con, $sql);
+			// CREATE PRODUCT TABLE
 			mysqli_select_db($con, $database);
 			$sql ="CREATE TABLE products (
 				  `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -39,12 +42,16 @@
 				  featured TINYINT NOT NULL ,
 				  PRIMARY KEY (`id`)) ENGINE = InnoDB";
 			mysqli_query($con, $sql);
+			// CREATE USERS TABLE
 			$sql = "CREATE TABLE users (
 					`ID` INT NOT NULL AUTO_INCREMENT ,
 					`username` VARCHAR(20) NOT NULL ,
-					`password` VARCHAR(128) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;";
+					`password` VARCHAR(128) NOT NULL ,
+					`admin` INT(1) NOT NULL ,
+					PRIMARY KEY (`ID`)) ENGINE = InnoDB;";
 			mysqli_query($con, $sql);
-
+			$sql = "insert into users (username,password,admin) values ('admin', '$admin_pw',1)";
+			mysqli_query($con, $sql);
 			echo "Adding items to database...<br />";
 			$sql = "INSERT INTO products VALUES (NULL, 'Asus GeForce RTX 3090 Ti TUF Gaming OC Edition',
 			 '2599.90', 'Asus', 'img/asus-3090.png',
@@ -62,6 +69,5 @@
 			mysqli_query($con, $sql);
 			echo "Everything is ready to start!<br />";
 		?>
-
 	</body>
 </html

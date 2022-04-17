@@ -19,6 +19,7 @@ include "functions.php";
     require_once("connect_db.php");
 
     //  Without "isset($_POST["username"]" site would add empty users. //
+    //echo $_POST["username"];
     if ($_POST["submit"] == "OK" && isset($_POST["username"]) && isset($_POST["password"]))
     {
         // something was posted
