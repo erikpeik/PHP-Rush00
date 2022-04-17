@@ -32,8 +32,8 @@
 	<div class="dropdown">
 		<button class="dropbtn">Products</button>
 		<div class="dropdown-content">
-			<a href="#">Link 1</a>
-			<a href="#">Link 2</a>
+			<a href="components.php">Components</a>
+			<a href="peripherals.php">Peripherals</a>
 		</div>
 	</div>
 	<a class="active" href="basket.php">Basket ( <?= product_count($_SESSION['cart']) ?> )</a>
