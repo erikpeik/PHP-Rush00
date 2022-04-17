@@ -2,8 +2,11 @@
 
 	session_start();
 	require_once("connect_db.php");
+	//
+	//$user_data = check_login();
+	//
 
-	if(isset($_POST["add"]))
+	if (isset($_POST["add"]))
 	{
 		// print_r($_POST["product_id"]);
 		if(isset($_SESSION["cart"]))
@@ -39,6 +42,7 @@
 		<meta charset="UTF-8">
 	</head>
 	<body>
+		Hello, <?php echo $user_data["username"]; ?>
 		<?PHP require_once("header.php") ?>
 		<a href="index.php"><img class="logo" src="img/logo.png"></a>
 		<h2 style="text-align: center; color: #C3073F">TOP PRODUCTS</h2>

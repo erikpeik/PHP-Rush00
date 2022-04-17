@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Log In</title>
+		<title>Sign In</title>
 		<link rel="stylesheet" href="css/nav.css">
 		<link rel="stylesheet" href="css/index.css">
 		<meta charset="UTF-8">
@@ -22,27 +22,26 @@ include "functions.php";
         // something was posted
         $username = $_POST["username"];
         $encrypted_password = hash_password($_POST["password"]);
-        
+
         if (!empty($username) || !empty($encrypted_password)) // !is_numeric could be added
         {
-            // Read database
-            $query = "select * from users where username = '$username' limit 1";
-            $result = mysqli_query($con, $query);
-
-            if ($result)
-            {
-                if ($result && mysqli_num_rows($result) > 0)
-                {
-                    $user_data = mysqli_fetch_assoc($result);
-                    if ($user_data["password"] === $encrypted_password)
-                    {
-                        $_SESSION["username"] = $user_data["username"];
-                        header("Location: index.php");
-                        die;
-                    }
-                }
-            }
-            echo "Wrong username or password!\n";
+            $query = "insert into users (username,password) values ('$username', '$encrypted_password')";
+            // Save to database
+            mysqli_query($con, $query);
+            unset($_POST);
+            header("Location: login.php");
+            die;
+            // Refreshing won't add same user again.
+            // unset($_POST["username"]);
+            // unset($_POST["password"]);
+            //unset($username);
+            //unset($encrypted_password);
+            // unset($_POST["submit"]);
+            // echo $_POST["username"];
+            // echo $_POST["password"];
+            // echo $username;
+            // echo $encrypted_password;
+            // echo $_POST["submit"];
         }
         else
         {
@@ -53,7 +52,7 @@ include "functions.php";
 ?>
 <html>
     <body>
-        <form method="POST" action="">
+        <form method="POST" action="signup.php">
         <div class="container">
             <div class="form_input">
         <!-- CHECK FOR SQL INJECTION -->
@@ -61,9 +60,7 @@ include "functions.php";
         </div>
         <br \>
         <div class="form_input">
-        <input type="password" name="password" placeholder="Password" value=""/></div>
-        <br \>
-        <a href="signup.php">Signup</a>
+        <input type="password" name="password" placeholder="Password" value="" /></div>
         <br \>
         <input type="submit" name="submit" value="OK">
         </form>

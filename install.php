@@ -30,21 +30,19 @@
 			mysqli_query($con, $sql);
 			mysqli_select_db($con, $database);
 			$sql ="CREATE TABLE products (
-				  id INT(11) NOT NULL AUTO_INCREMENT,
-				  title VARCHAR(255) NOT NULL ,
-				  price DECIMAL(10,2) NOT NULL ,
-				  brand VARCHAR(100) NOT NULL ,
-				  image VARCHAR(255) NOT NULL ,
-				  description TEXT NOT NULL ,
+				  `id` INT(11) NOT NULL AUTO_INCREMENT,
+				  `title` VARCHAR(255) NOT NULL ,
+				  `price` DECIMAL(10,2) NOT NULL ,
+				  `brand` VARCHAR(100) NOT NULL ,
+				  `image` VARCHAR(255) NOT NULL ,
+				  `description` TEXT NOT NULL ,
 				  featured TINYINT NOT NULL ,
 				  PRIMARY KEY (`id`)) ENGINE = InnoDB";
 			mysqli_query($con, $sql);
-
 			$sql = "CREATE TABLE users (
-				username VARCHAR(20) NOT NULL ,
-				password VARCHAR(128) NOT NULL ,
-				admin INT(1) NOT NULL ) ENGINE = InnoDB;";	
-				//whirlpool
+					`ID` INT NOT NULL AUTO_INCREMENT ,
+					`username` VARCHAR(20) NOT NULL ,
+					`password` VARCHAR(128) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;";
 			mysqli_query($con, $sql);
 
 			echo "Adding items to database...<br />";
