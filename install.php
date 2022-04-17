@@ -50,6 +50,7 @@
 					`admin` INT(1) NOT NULL ,
 					PRIMARY KEY (`ID`)) ENGINE = InnoDB;";
 			mysqli_query($con, $sql);
+			// CREATE ADMIN USER
 			$sql = "insert into users (username,password,admin) values ('admin', '$admin_pw',1)";
 			mysqli_query($con, $sql);
 			echo "Adding items to database...<br />";

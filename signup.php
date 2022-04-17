@@ -26,7 +26,7 @@ include "functions.php";
         if (!empty($username) && !empty($encrypted_password)) // !is_numeric could be added to deny numeric users
         {
             //check_dublicate_users();
-            $query = "insert into users (username,password) values ('$username', '$encrypted_password')";
+            $query = "insert into users (username,password, admin) values ('$username', '$encrypted_password',0)";
             // Save to database
             mysqli_query($con, $query);
             unset($_POST);

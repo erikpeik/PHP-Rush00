@@ -25,7 +25,7 @@
 			<li><a href="logout.php">Log Out</a></li>
 			<?PHP }
 		else { ?>
-		<li><a href="login.php">Sign Up</a></li>
+		<li><a href="login.php">Sign In</a></li>
 		<?PHP } ?>
 	</div>
 </ul>
