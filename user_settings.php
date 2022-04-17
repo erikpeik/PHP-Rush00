@@ -14,7 +14,6 @@ if ($_POST["submit"] == "OK" && isset($_POST["oldpw"]) && isset($_POST["newpw"])
         $query = "UPDATE users SET password='$encrypted_newpw' where username='$username'";
         $result = mysqli_query($con, $query);
     }
-    echo "OK\n";
 }
 
 ?>

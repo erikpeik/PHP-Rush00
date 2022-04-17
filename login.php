@@ -35,11 +35,11 @@ include "functions.php";
                     }
                 }
             }
-            echo "Wrong username or password!\n";
+            echo '<script> alert("Wrong Username or Password")</script>';
         }
         else
         {
-            // Wrong information added
+            echo '<script> alert("Wrong Username or Password")</script>';
         }
 
     }
