@@ -26,4 +26,13 @@ function    hash_password($plain_pw)
     return ($crypted_pw);
 }
 
+function    duplicate_users($con, $username)
+{
+    $num = mysqli_num_rows(mysqli_query($con, "SELECT * FROM `users` WHERE ( `username` = '$username')"));
+    echo $num;
+    if ($num >= 1)
+        return (1);
+    else
+        return (0);
+}
 ?>

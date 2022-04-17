@@ -1,5 +1,5 @@
 <?PHP
-
+	session_start();
 	function	product_count($basket)
 	{
 		$count = 0;
@@ -25,7 +25,7 @@
 			<li><a href="logout.php">Log Out</a></li>
 			<?PHP }
 		else { ?>
-		<li><a href="login.php">Sign In</a></li>
+		<li><a href="login.php">Log In</a></li>
 		<?PHP } ?>
 	</div>
 </ul>

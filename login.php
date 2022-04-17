@@ -1,16 +1,5 @@
 <link rel="stylesheet" type="text/css" href="login.css" />
-
 <html>
-	<head>
-		<title>Log In</title>
-		<link rel="stylesheet" href="css/nav.css">
-		<link rel="stylesheet" href="css/index.css">
-		<meta charset="UTF-8">
-	</head>
-	<body>
-<?PHP require("header.php") ?>
-<a href="index.php"><img class="logo" src="img/logo.png"></a>
-</body>
 </html>
 
 <?php
@@ -55,11 +44,19 @@ include "functions.php";
     }
 ?>
 <html>
+<head>
+	<title>Log In</title>
+	<link rel="stylesheet" href="css/nav.css">
+	<link rel="stylesheet" href="css/index.css">
+	<meta charset="UTF-8">
+</head>
     <body>
+        <?PHP require("header.php") ?>
+        <a href="index.php"><img class="logo" src="img/logo.png"></a>
         <form method="POST" action="">
         <div class="form_container">
             <div class="form_input">
-        <!-- CHECK FOR SQL INJECTION -->
+                <h1 style="color: #6F2232">Log In</h1>
         <input type="text" name="username" placeholder="Username"value="" required/>
         </div>
         <br \>

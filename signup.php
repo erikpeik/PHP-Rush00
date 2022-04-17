@@ -1,19 +1,6 @@
-<html>
-	<head>
-		<title>Sign In</title>
-		<link rel="stylesheet" href="css/nav.css">
-		<link rel="stylesheet" href="css/index.css">
-		<meta charset="UTF-8">
-	</head>
-	<body>
-<?PHP require("header.php") ?>
-<a href="index.php"><img class="logo" src="img/logo.png"></a>
-</body>
-</html>
-
 <?php
 include "functions.php";
-    session_start();
+    //session_start();
     require_once("connect_db.php");
 
     //  Without "isset($_POST["username"]" site would add empty users. //
@@ -25,29 +12,39 @@ include "functions.php";
 
         if (!empty($username) && !empty($encrypted_password)) // !is_numeric could be added to deny numeric users
         {
-            //check_dublicate_users();
-            $query = "insert into users (username,password, admin) values ('$username', '$encrypted_password',0)";
-            // Save to database
-            mysqli_query($con, $query);
-            unset($_POST);
-            unset($username);
-            unset($encrypted_password);
-            header("Location: login.php");
-            die;
-        }
-        else
-        {
-            // Empty username or password inputted
-            echo "Fill both fields please!";
-        }
+            $num = mysqli_num_rows(mysqli_query($con, "SELECT * FROM `users` WHERE ( `username` = '$username')"));
+            if ($num < 1)
+            {
+                // Save to database
+                $query = "insert into users (username,password, admin) values ('$username', '$encrypted_password',0)";
+                mysqli_query($con, $query);
+                unset($_POST);
+                unset($username);
+                unset($encrypted_password);
+                header("Location: login.php");
+                die;
+            }
+            else
+                echo '<script> alert("User already exist!")</script>';
+            }
+            else
+                echo '<script> alert("Fill both fields please!")</script>';
     }
 ?>
 <html>
-    <body>
+<head>
+	<title>Sign In</title>
+	<link rel="stylesheet" href="css/nav.css">
+	<link rel="stylesheet" href="css/index.css">
+	<meta charset="UTF-8">
+</head>
+        <body>
+            <?PHP require("header.php") ?>
+            <a href="index.php"><img class="logo" src="img/logo.png"></a>
         <form method="POST" action="signup.php">
         <div class="container">
             <div class="form_input">
-        <!-- CHECK FOR SQL INJECTION -->
+                <h1 style="color: #6F2232">Sign In</h1>
         <input type="text" name="username" placeholder="Username"value="" required/>
         </div>
         <br \>
