@@ -3,9 +3,31 @@ body {
 	background-color: #1A1A1D;
 }
 
+.summary {
+	width: 35vw	;
+	float: left;
+	padding: 20px;
+	width: 40vw;
+	margin-right: 0;
+	background-color: #6F2232;
+}
+
+.summary > h2 {
+	color: white;
+}
+
+.holder {
+	display: flex;
+	padding: 20px;
+}
+
 .container {
-	width: 80vw;
-	margin: auto;
+	margin-right: 1vw;
+	width: 47vw;
+	float: left;
+	padding: 20px;
+	display: block;
+	width: 54vw;
 	background-color: #6F2232;
 }
 
@@ -17,11 +39,11 @@ body {
 	float: left;
 	display:block;
 	position: relative;
-	width: 25vw;
+	width: 24vw;
 	height: 18.4vw;
-	background-color: #6F2232;
+	background-color: hsl(350, 80%, 23%);
 	margin: 0.8vw;
-	box-shadow: 0 0 1vw #c3073f56;
+	box-shadow: 0 0 1vw #820a2c8c;
 }
 
 .product_div > h4 {
