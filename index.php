@@ -7,29 +7,12 @@
 
 	if(isset($_POST["add"]))
 	{
-		// print_r($_POST["product_id"]);
-		if(isset($_SESSION["cart"]))
+		if($_SESSION["cart"][$_POST["product_id"]])
 		{
-			$item_array_id = array_column($_SESSION['cart'], "product_id");
-			if (in_array($_POST["product_id"], $item_array_id))
-			{
-				echo "<script>alert('Product is already added in the card')</script>";
-				echo "<script>window.location = 'index.php'</script>";
-			}
-			else
-			{
-				$item_array= array('product_id' => $_POST["product_id"]);
-				$_SESSION["cart"][] = $item_array;
-				print_r($_SESSION["cart"]);
-			}
+			$_SESSION["cart"][$_POST["product_id"]]["count"] += 1;
 		}
 		else
-		{
-			$item_array= array('product_id' => $_POST["product_id"]);
-			$_SESSION["cart"][0] = $item_array;
-		//	print_r($_SESSION["cart"]);
-		}
-
+			$_SESSION["cart"][$_POST["product_id"]] = array('product_id' => $_POST["product_id"], 'count' => 1);
 	}
 ?>
 

@@ -17,7 +17,7 @@ body {
 	float: left;
 	display:block;
 	position: relative;
-	width: 18.4vw;
+	width: 25vw;
 	height: 18.4vw;
 	background-color: #6F2232;
 	margin: 0.8vw;
@@ -33,7 +33,7 @@ body {
 .product_div > p {
 	color: white;
 	position: absolute;
-	bottom: 0;
+	bottom: 5vw;
 	left: 0.5vw;
 	font-size: 1vw;
 }
@@ -46,10 +46,17 @@ body {
 	height: 60%;
 }
 
-.button {
+.button-div {
 	position: absolute;
+	width: 10.7vw;
 	bottom: 1vw;
 	right: 1vw;
+}
+
+.button {
+	margin-left: 0;
+	margin-right: 0;
+	position: relative;
 	font-size: 1vw;
 	padding:0.1vw 0.2vw;
 	border:0.1vw solid #FFFFFF;

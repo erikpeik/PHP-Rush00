@@ -1,15 +1,19 @@
 <?PHP
 
 	session_start();
-	if ($_GET["action"] == "remove")
+	if (isset($_POST["remove"]) && isset($_GET['id']))
 	{
-		foreach ($_SESSION["cart"] as $key => $val)
-		{
-			if ($val["product_id"] == $_GET["id"])
-			{
-				unset($_SESSION["cart"][$key]);
-			}
-		}
+		unset($_SESSION["cart"][$_GET["id"]]);
+	}
+	if (isset($_POST["decrease"]) && isset($_GET['id']))
+	{
+		if ($_SESSION["cart"][$_GET["id"]]["count"] > 1)
+			$_SESSION["cart"][$_GET["id"]]["count"] -= 1;
+	}
+	if (isset($_POST["increase"]) && isset($_GET['id']))
+	{
+		if ($_SESSION["cart"][$_GET["id"]]["count"] < 99)
+			$_SESSION["cart"][$_GET["id"]]["count"] += 1;
 	}
 ?>
 
@@ -34,17 +38,25 @@
 							$result = mysqli_query($con, $sql);
 							while ($row = mysqli_fetch_assoc($result))
 							{
-								foreach ($product_id as $id)
+								foreach ($_SESSION["cart"] as $product)
 								{
-									if ($row['id'] == $id)
+									/* print($product); */
+									if ($_POST["count"])
+										$product["count"] = $_POST["count"];
+									if ($row['id'] == $product['product_id'])
 									{
 										?>
-											<form action="basket.php?action=remove&id=<?= $row['id'] ?>" method="POST" class="items">
+											<form action="basket.php?id=<?= $row['id'] ?>" method="POST" class="items">
 												<div class="product_div">
 													<h4><?=$row['title']; ?></h4>
 													<img class="product_image" src="<?= $row['image']; ?>" alt="<?= $row['title']; ?>" />
 													<p>Price: <?= $row['price']; ?>€</p>
-													<button class="button" type="submit" name="remove">Remove</button>
+													<div class="button-div">
+														<button type="submit" class="button" name="decrease" style="width: 1.5vw">-</button>
+														<input type="button" class="button" name="count" value="<?= $product["count"] ?>" style="width: 1.5vw" \>
+														<button type="submit" class="button" name="increase" style="width: 1.5vw">+</button>
+														<button type="submit" class="button" name="remove" style="margin-left: 0.5vw">Remove</button>
+													</div>
 												</div>
 											</form>
 										<?PHP
