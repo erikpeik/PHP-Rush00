@@ -27,47 +27,69 @@
 	</head>
 	<body>
 		<?PHP require("header.php") ?>
+		<div class="holder">
 		<div class="container">
-			<h2>The Basket</h2>
-				<div>
-					<?PHP
-						if (isset($_SESSION["cart"]) && count($_SESSION["cart"]) != 0)
+			<h2 style="width: 10vw">The Basket</h2>
+			<div>
+				<?PHP
+				if (isset($_SESSION["cart"]) && count($_SESSION["cart"]) != 0)
+				{
+					$sql = "SELECT * FROM products";
+					$result = mysqli_query($con, $sql);
+					while ($row = mysqli_fetch_assoc($result))
+					{
+						foreach ($_SESSION["cart"] as $product)
 						{
-							$product_id = array_column($_SESSION["cart"], "product_id");
-							$sql = "SELECT * FROM products";
-							$result = mysqli_query($con, $sql);
-							while ($row = mysqli_fetch_assoc($result))
+							/* print($product); */
+							if ($_POST["count"])
+								$product["count"] = $_POST["count"];
+							if ($row['id'] == $product['product_id'])
 							{
-								foreach ($_SESSION["cart"] as $product)
-								{
-									/* print($product); */
-									if ($_POST["count"])
-										$product["count"] = $_POST["count"];
-									if ($row['id'] == $product['product_id'])
-									{
-										?>
-											<form action="basket.php?id=<?= $row['id'] ?>" method="POST" class="items">
-												<div class="product_div">
-													<h4><?=$row['title']; ?></h4>
-													<img class="product_image" src="<?= $row['image']; ?>" alt="<?= $row['title']; ?>" />
-													<p>Price: <?= $row['price']; ?>€</p>
-													<div class="button-div">
-														<button type="submit" class="button" name="decrease" style="width: 1.5vw">-</button>
-														<input type="button" class="button" name="count" value="<?= $product["count"] ?>" style="width: 1.5vw" \>
-														<button type="submit" class="button" name="increase" style="width: 1.5vw">+</button>
-														<button type="submit" class="button" name="remove" style="margin-left: 0.5vw">Remove</button>
-													</div>
-												</div>
-											</form>
-										<?PHP
-									}
-								}
+								?>
+									<form action="basket.php?id=<?= $row['id'] ?>" method="POST" class="items">
+									<div class="product_div">
+											<h4><?=$row['title']; ?></h4>
+											<img class="product_image" src="<?= $row['image']; ?>" alt="<?= $row['title']; ?>" />
+											<p>Price: <?= $row['price']; ?>€</p>
+											<div class="button-div">
+												<button type="submit" class="button" name="decrease" style="width: 1.5vw">-</button>
+												<input type="button" class="button" name="count" value="<?= $product["count"] ?>" style="width: 1.5vw" \>
+												<button type="submit" class="button" name="increase" style="width: 1.5vw">+</button>
+												<button type="submit" class="button" name="remove" style="margin-left: 0.5vw">Remove</button>
+											</div>
+										</div>
+									</form>
+								<?PHP
 							}
 						}
-						else
-							echo '<h5 style="color: white;">Basket is Empty</h5>';
-					?>
-				</div>
+					}
+				}
+				else
+					echo '<h5 style="color: white;">Basket is Empty</h5>';
+				?>
+			</div>
+		</div>
+		<div class="summary">
+			<h2>Summary</h2>
+			<?PHP
+			$sql = "SELECT * FROM products";
+			$result = mysqli_query($con, $sql);
+			$total = 0;
+			while ($row = mysqli_fetch_assoc($result))
+			{
+				foreach ($_SESSION["cart"] as $product)
+				{
+					if ($row['id'] == $product['product_id'])
+					{ ?>
+						<p style="color: white; margin-left: 1vw;"><?=$row['title']; ?> ( x <?= $product["count"] ?> ) : <?= number_format($row['price'] * $product["count"], 2, '.', '') ?>€</p>
+
+				<?PHP	$total += $row['price'] * $product["count"];
+					}
+				}
+			}
+			?>
+			<h2>Total: <?= number_format($total, 2, '.', ''); ?>€</h2>
+		</div>
 		</div>
 	</body>
 </html>
