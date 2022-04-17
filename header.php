@@ -21,7 +21,7 @@
 		<li><a href="admin.php">Admin Panel</a></li> <?php } ?>
 		<?PHP
 		if($_SESSION["username"]) { ?>
-			<li><a>Hello, <?php echo $_SESSION["username"]; ?></a></li>
+			<li><a href="user_settings.php">Hello, <?php echo $_SESSION["username"]; ?></a></li>
 			<li><a href="logout.php">Log Out</a></li>
 			<?PHP }
 		else { ?>
