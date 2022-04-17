@@ -12,3 +12,65 @@ body {
 .container > h2 {
 	color: white;
 }
+
+.product_div {
+	float: left;
+	display:block;
+	position: relative;
+	width: 25vw;
+	height: 18.4vw;
+	background-color: #6F2232;
+	margin: 0.8vw;
+	box-shadow: 0 0 1vw #c3073f56;
+}
+
+.product_div > h4 {
+	color: white;
+	text-align: center;
+	font-size: 1vw;
+}
+
+.product_div > p {
+	color: white;
+	position: absolute;
+	bottom: 5vw;
+	left: 0.5vw;
+	font-size: 1vw;
+}
+
+.product_image {
+	position: relative;
+	display: inline-block;
+	left: 50%;
+	transform: translate(-50%);
+	height: 60%;
+}
+
+.button-div {
+	position: absolute;
+	width: 10.7vw;
+	bottom: 1vw;
+	right: 1vw;
+}
+
+.button {
+	margin-left: 0;
+	margin-right: 0;
+	position: relative;
+	font-size: 1vw;
+	padding:0.1vw 0.2vw;
+	border:0.1vw solid #FFFFFF;
+	background-color: #a34457;
+	color:#FFFFFF;
+	transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.button:hover {
+	box-shadow: inset 6vw 0 0 0 white;
+	color: #661e2d;
+}
+
+.button:active {
+	background-color: white;
+	transition: 0.1s;
+}
