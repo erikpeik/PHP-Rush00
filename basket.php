@@ -1,5 +1,4 @@
 <?PHP
-
 	session_start();
 	if (isset($_POST["remove"]) && isset($_GET['id']))
 	{
@@ -89,6 +88,11 @@
 			}
 			?>
 			<h2>Total: <?= number_format($total, 2, '.', ''); ?>€</h2>
+			<?PHP if ($total != 0) { ?>
+			<form method="POST" action="checkout.php">
+				<button type="submit" class="checkout" name="submit" >Checkout</button>
+			</form>
+			<?PHP } ?>
 		</div>
 		</div>
 	</body>

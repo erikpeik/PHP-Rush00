@@ -1,14 +1,14 @@
 <?PHP
 
-function	product_count($basket)
-{
-	$count = 0;
-	foreach ($basket as $product)
+	function	product_count($basket)
 	{
-		$count += $product["count"];
+		$count = 0;
+		foreach ($basket as $product)
+		{
+			$count += $product["count"];
+		}
+		return $count;
 	}
-	return $count;
-}
 
 ?>
 
