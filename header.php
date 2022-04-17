@@ -1,7 +1,7 @@
 <ul>
 	<li><a class="active" href="index.php">Home</a></li>
 	<li><a href="#product">Products</a></li>
-	<li><a href="#signin">Sign in</a></li>
+	<li><a href="login.php">Sign in</a></li>
 	<li><a href="basket.php">Basket ( <?PHP
 	if(isset($_SESSION['cart'])) {
 		$count = count($_SESSION["cart"]);

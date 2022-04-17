@@ -1,7 +1,7 @@
 <?PHP
 
 	session_start();
-	$con = mysqli_connect('localhost', 'root', 'phppiscine');
+	$con = mysqli_connect('localhost', 'root', 'hmaronen');
 	if (mysqli_connect_errno())
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -49,7 +49,7 @@
 	</head>
 	<body>
 		<?PHP require("header.php") ?>
-		<img class="logo" src="img/logo.png">
+		<a href="index.php"><img class="logo" src="img/logo.png"></a>
 		<h2 style="text-align: center; color: #C3073F">TOP PRODUCTS</h2>
 		<div class="featured_container">
 			<?PHP while($product = mysqli_fetch_assoc($featured)) { ?>
