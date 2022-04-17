@@ -11,7 +11,7 @@
 		</form>
 		<?PHP
 			$database = "rush_store";
-			$admin_pw = hash('whirlpool', "admin"); 
+			$admin_pw = hash('whirlpool', "admin");
 
 			if (!$_GET["servername"] || !$_GET["login"] || !$_GET["password"])
 			{
@@ -49,6 +49,17 @@
 					`password` VARCHAR(128) NOT NULL ,
 					`admin` INT(1) NOT NULL ,
 					PRIMARY KEY (`ID`)) ENGINE = InnoDB;";
+			mysqli_query($con, $sql);
+			echo "Create orders table<br />";
+			$sql = "CREATE TABLE orders (
+					`order_id` INT NOT NULL AUTO_INCREMENT ,
+					`username` VARCHAR(20) NOT NULL ,
+					`full_name` VARCHAR(50) NOT NULL ,
+					`address` VARCHAR(100) NOT NULL ,
+					`order_time` VARCHAR(30) NOT NULL ,
+					`orders` TEXT NOT NULL ,
+					`total_price` DECIMAL(10,2) NOT NULL ,
+					PRIMARY KEY (`order_id`)) ENGINE = InnoDB;";
 			mysqli_query($con, $sql);
 			// CREATE ADMIN USER
 			$sql = "insert into users (username,password,admin) values ('admin', '$admin_pw',1)";

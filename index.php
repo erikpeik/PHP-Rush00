@@ -27,7 +27,12 @@
 		<meta charset="UTF-8">
 	</head>
 	<body>
-		<?PHP require_once("header.php") ?>
+		<?PHP
+		require_once("header.php");
+		if ($_GET['order'] == 'placed') {
+			echo ('<script>alert("Order has been placed!");</script>');
+		}
+		?>
 		<a href="index.php"><img class="logo" src="img/logo.png"></a>
 		<h2 style="text-align: center; color: #C3073F">TOP PRODUCTS</h2>
 		<div class="featured_container">

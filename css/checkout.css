@@ -5,14 +5,23 @@ body {
 }
 
 .row {
-	margin-top: 2vw;
-	margin-left: 2vw;
-	position: relative;
-	width: 30vw;
+	flex: 1;
+}
+
+.row:first-child {
+	margin-right: 20px;
 }
 
 .input {
 	position: relative;
-	width: 30vw;
+	width: 100%;
 	font-size: 1.6vw;
+	margin-top: 0.5vw;
+	margin-bottom: 0.5vw;
 }
+
+.container {
+	margin: 1vw;
+	display: flex;
+}
+
