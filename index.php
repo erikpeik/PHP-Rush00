@@ -27,7 +27,6 @@
 		<meta charset="UTF-8">
 	</head>
 	<body>
-		<span style="color: white">Hello, <?php echo $_SESSION["username"];?></span>
 		<?PHP require_once("header.php") ?>
 		<a href="index.php"><img class="logo" src="img/logo.png"></a>
 		<h2 style="text-align: center; color: #C3073F">TOP PRODUCTS</h2>

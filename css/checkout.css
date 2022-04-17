@@ -1,0 +1,18 @@
+body {
+	font-family: Helvetica, sans-serif;
+	background-color: #1A1A1D;
+	color: white;
+}
+
+.row {
+	margin-top: 2vw;
+	margin-left: 2vw;
+	position: relative;
+	width: 30vw;
+}
+
+.input {
+	position: relative;
+	width: 30vw;
+	font-size: 1.6vw;
+}

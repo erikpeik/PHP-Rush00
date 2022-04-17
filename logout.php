@@ -4,6 +4,6 @@ if (isset($_SESSION["username"]))
 {
     unset($_SESSION["username"]);
 }
-header("Location: login.php");
+header("Location: index.php");
 die;
 ?>

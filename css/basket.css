@@ -9,7 +9,7 @@ body {
 	padding: 20px;
 	width: 40vw;
 	margin-right: 0;
-	background-color: #6F2232;
+	background-color: hsl(348, 61%, 23%);
 }
 
 .summary > h2 {
@@ -28,7 +28,7 @@ body {
 	padding: 20px;
 	display: block;
 	width: 54vw;
-	background-color: #6F2232;
+	background-color: #252528;
 }
 
 .container > h2 {
@@ -39,9 +39,9 @@ body {
 	float: left;
 	display:block;
 	position: relative;
-	width: 24vw;
+	width: 45%;
 	height: 18.4vw;
-	background-color: hsl(350, 80%, 23%);
+	background-color: 6F2232;
 	margin: 0.8vw;
 	box-shadow: 0 0 1vw #820a2c8c;
 }
@@ -96,3 +96,20 @@ body {
 	background-color: white;
 	transition: 0.1s;
 }
+
+.checkout {
+	background-color: #7a2f39;
+	font-size: 2vw;
+	border:0.2vw solid #c6959b;
+	padding:0.2vw 0.4vw;
+	transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+	color: #c6959b;
+}
+
+.checkout:hover {
+	box-shadow: inset 10vw 0 0 0 #c6959b;
+	font-size: 2vw;
+	color: #7a2f39;
+	border:0.2vw solid #7a2f39;
+}
+
