@@ -1,7 +1,7 @@
 # PHP-Rush00
 After the first week of training in PHP, we had to do a small e-commerce website with its own data management system
 
-#### 🤩 Made by [emende](https://github.com/erikpeik) & [hmaronen](https://github.com/HenronenGIT)
+### 🤩 Made by [emende](https://github.com/erikpeik) & [hmaronen](https://github.com/HenronenGIT)
 
 ### 🔧 How to run: 
 To run this website you are required to have MySQL server. We are storing our information there.
